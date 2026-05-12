@@ -266,7 +266,7 @@ function showForecast() {
             <div class="forecast-header">
                 <span class="forecast-symbol">${info.symbol}</span>
                 <div>
-                    <h3>${sign} — توقعات 2025</h3>
+                    <h3>${sign} — توقعات 2026</h3>
                     <p>${info.dateRange} &nbsp;|&nbsp; ${info.element}</p>
                 </div>
             </div>
@@ -438,7 +438,7 @@ function openSignModal(sign) {
 
         <!-- توقعات سنوية مختصرة -->
         <div class="modal-forecast" style="--mc:${info.color}">
-            <h3>🔭 توقعات 2025</h3>
+            <h3>🔭 توقعات 2026</h3>
             <p>${info.yearlyForecast.general}</p>
             <button onclick="closeModal(); document.getElementById('forecastSign').value='${sign}'; showForecast(); document.getElementById('forecast').scrollIntoView({behavior:'smooth'});"
                     style="background:${info.color}; margin-top:12px; font-size:14px; padding:8px 18px">
@@ -468,7 +468,7 @@ function openSignModal(sign) {
             <div class="compat-legend">
                 <span>💚 توافق ممتاز</span>
                 <span>💛 متوسط</span>
-                <span>🔴 تحدٍّ</span>
+                <span>🔴 صعب</span>
                 <span>🔵 نفس البرج</span>
             </div>
         </div>
