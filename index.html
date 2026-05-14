@@ -13,6 +13,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
+    
+    
+<script>
+    // فرض التوقيت المحلي
+    Date.prototype.toLocaleString = function() {
+        return new Intl.DateTimeFormat('ar-EG', {
+            year: 'numeric', month: 'long', day: 'numeric',
+            hour: 'numeric', minute: 'numeric', second: 'numeric'
+        }).format(this);
+    };
+</script>
+    
 </head>
 <body>
 
