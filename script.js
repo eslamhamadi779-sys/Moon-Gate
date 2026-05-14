@@ -3,7 +3,12 @@
 // ===============================
 
 // بيانات الأبراج (data.js مدمج)
-const zodiacData
+
+// أضف الدالة دي قبل function checkZodiac():
+function getZodiac(day, month)
+
+
+checkZodiac():
 // ===============================
 // script.js - المنطق الرئيسي للموقع
 // ===============================
