@@ -1,4 +1,11 @@
 // ===============================
+// تهيئة الصفحة
+// ===============================
+
+console.log(new Date().toLocaleString('ar-EG'));
+console.log(Intl.DateTimeFormat().resolvedOptions().timeZone);
+
+// ===============================
 // script.js - المنطق الرئيسي للموقع
 // ===============================
 // ===============================
@@ -146,8 +153,9 @@ function checkZodiac() {
     result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
+
 // ===============================
-// حساب العمر بالتفصيل
+// حساب العمر بالتفصيل - النسخة النهائية
 // ===============================
 function calculateAge() {
     const dateInput = document.getElementById('ageBirthDate').value;
@@ -159,8 +167,12 @@ function calculateAge() {
         return;
     }
 
-    const birth = new Date(dateInput);
+    // ✅ التوقيت المحلي المُصحح
+    const birth = new Date(dateInput + 'T00:00:00');
     const now = new Date();
+    
+    console.log('Birth:', birth.toLocaleString('ar-EG'));
+    console.log('Now:', now.toLocaleString('ar-EG'));
 
     if (birth > now) {
         resultDiv.innerHTML = '⚠️ تاريخ الميلاد لا يمكن أن يكون في المستقبل!';
@@ -168,7 +180,7 @@ function calculateAge() {
         return;
     }
 
-    // حساب السنوات والأشهر والأيام
+    // حساب السنوات والأشهر والأيام ✅
     let years  = now.getFullYear() - birth.getFullYear();
     let months = now.getMonth()    - birth.getMonth();
     let days   = now.getDate()     - birth.getDate();
@@ -183,16 +195,82 @@ function calculateAge() {
         months += 12;
     }
 
-    // حساب الأيام الكاملة والساعات
-    const diffMs    = now - birth;
+    // ✅ الإحصائيات الكاملة
+    const diffMs = now - birth;
     const totalDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-    const totalHours= Math.floor(diffMs / (1000 * 60 * 60));
+    const totalHours = Math.floor(diffMs / (1000 * 60 * 60));
     const totalMins = Math.floor(diffMs / (1000 * 60));
 
-    // العيد القادم
+    // العيد القادم ✅ (إصلاح الإملاء)
     const nextBirthday = new Date(now.getFullYear(), birth.getMonth(), birth.getDate());
     if (nextBirthday <= now) nextBirthday.setFullYear(now.getFullYear() + 1);
-    const daysTobirthday = Math.ceil((nextBirthday - now) / (1000 * 60 * 60 * 24));
+    const daysToBirthday = Math.ceil((nextBirthday - now) / (1000 * 60 * 60 * 24));
+
+    // البرج ✅
+    const zodiac = getZodiac(birth.getDate(), birth.getMonth());
+    const info = zodiacData[zodiac];
+
+    // رسالة حسب العمر ✅
+    let ageMsg = '';
+    if (years < 13)       ageMsg = '🌱 في بداية رحلة الحياة الجميلة!';
+    else if (years < 20)  ageMsg = '🔥 سنوات الشباب والأحلام الكبيرة!';
+    else if (years < 30)  ageMsg = '⚡ عقد العشرينيات — أقوى سنوات العمر!';
+    else if (years < 40)  ageMsg = '🌟 الثلاثينيات — النضج والإنجاز!';
+    else if (years < 50)  ageMsg = '👑 الأربعينيات — حكمة وخبرة لا تُشترى!';
+    else if (years < 60)  ageMsg = '💎 الخمسينيات — قمة العطاء والحكمة!';
+    else                  ageMsg = '🌳 شجرة أصيلة لها جذور عميقة وثمار طيبة!';
+
+    // ✅ العرض النهائي
+    resultDiv.innerHTML = `
+        <div class="age-display">
+            <div class="age-main" style="color:${info.color}">
+                <span class="age-number">${years}</span>
+                <span class="age-unit">سنة</span>
+                <span class="age-sep">و</span>
+                <span class="age-number">${months}</span>
+                <span class="age-unit">شهر</span>
+                <span class="age-sep">و</span>
+                <span class="age-number">${days}</span>
+                <span class="age-unit">يوم</span>
+            </div>
+            <div class="age-msg">${ageMsg}</div>
+            <div class="age-stats">
+                <div class="age-stat">
+                    <div class="age-stat-num" style="color:${info.color}">${totalDays.toLocaleString('ar-EG')}</div>
+                    <div class="age-stat-label">يوم عشته</div>
+                </div>
+                <div class="age-stat">
+                    <div class="age-stat-num" style="color:${info.color}">${totalHours.toLocaleString('ar-EG')}</div>
+                    <div class="age-stat-label">ساعة</div>
+                </div>
+                <div class="age-stat">
+                    <div class="age-stat-num" style="color:${info.color}">${totalMins.toLocaleString('ar-EG')}</div>
+                    <div class="age-stat-label">دقيقة</div>
+                </div>
+                <div class="age-stat">
+                    <div class="age-stat-num" style="color:#fbbf24">${daysToBirthday}</div>
+                    <div class="age-stat-label">يوم لعيد ميلادك 🎂</div>
+                </div>
+            </div>
+            <div class="age-zodiac">
+                برجك: <span style="color:${info.color}">${info.symbol} ${zodiac}</span>
+                &nbsp;|&nbsp; ${info.element} &nbsp;|&nbsp; ${info.planet}
+            </div>
+        </div>
+    `;
+    resultDiv.classList.remove('hidden');
+    resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+
+
+
+
+
+
+
+
+
 
     // البرج
     const zodiac = getZodiac(birth.getDate(), birth.getMonth() + 1);
