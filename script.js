@@ -455,7 +455,7 @@ function openSignModal(sign) {
         </div>
  
         <div class="modal-forecast" style="--mc:${info.color}">
-            <h3>🔭 توقعات 2025</h3>
+            <h3>🔭 توقعات 2026</h3>
             <p class="forecast-general-mini">${f.general}</p>
             <div class="forecast-grid-mini">
                 <div class="forecast-mini-item"><span>❤️ الحب</span><p>${f.love}</p></div>
