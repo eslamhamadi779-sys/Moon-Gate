@@ -586,12 +586,7 @@ function closeModal() {
         .classList.add('hidden');
 }
 
-function openLilith() {
-    const isMobile = /Android|iPhone|iPad/i.test(navigator.userAgent);
 
-    if (isMobile) {
-        window.open("https://t.me/YOUR_BOT_USERNAME", "_blank");
-    } else {
-        window.open("https://web.telegram.org/k/#@YOUR_BOT_USERNAME", "_blank");
-    }
+function openLilith() {
+    window.open("https://t.me/lily69_ai_bot", "_blank");
 }
