@@ -1085,19 +1085,59 @@ footer {
     align-items: center;
 }
 
-/* زر ليليث */
+
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* زر ليليث في المنتصف */
 .lilith-btn {
-    background: linear-gradient(135deg, #ff00cc, #3333ff);
-    color: white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: transparent;
     border: none;
-    padding: 8px 14px;
-    border-radius: 20px;
     cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
+    text-align: center;
+}
+
+/* الأيقونة */
+.lilith-btn {
+    font-size: 22px;
+}
+
+/* النص تحت الزر */
+.lilith-text {
+    display: block;
+    font-size: 12px;
+    margin-top: 2px;
+
+    background: linear-gradient(90deg, #ff004c, #ff7b00, #ff004c);
+    background-size: 200% auto;
+
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    animation: fireText 1.5s linear infinite;
+    text-shadow: 0 0 10px rgba(255, 0, 80, 0.6);
+}
+
+/* حركة النار */
+@keyframes fireText {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
 }
 
 .lilith-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 12px rgba(255, 0, 200, 0.5);
+    transform: translateX(-50%) scale(1.1);
 }
+
+
+
+
+
