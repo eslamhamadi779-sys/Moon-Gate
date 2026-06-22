@@ -1078,3 +1078,26 @@ footer {
 ::-webkit-scrollbar-track { background: var(--bg-deep); }
 ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent2); }
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* زر ليليث */
+.lilith-btn {
+    background: linear-gradient(135deg, #ff00cc, #3333ff);
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.lilith-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(255, 0, 200, 0.5);
+}
