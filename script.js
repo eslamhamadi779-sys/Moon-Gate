@@ -1,3 +1,4 @@
+
 // ========================================
 // script.js - المنطق الرئيسي للموقع
 // يعتمد على zodiacData و getZodiac من data.js
@@ -11,6 +12,11 @@ window.addEventListener('DOMContentLoaded', () => {
     populateSignSelectors();
     buildSignsGrid();
     animateEntrance();
+
+    // تهيئة مجتمع ليليث (معرّفة في community.js) — نتأكد إنها موجودة الأول
+    if (typeof initCommunity === 'function') {
+        initCommunity();
+    }
 });
  
 // ========================================
@@ -521,69 +527,6 @@ function animateEntrance() {
         s.classList.add('fade-section');
         observer.observe(s);
     });
-}
-
-
-
-
-
-// ========================================
-// فتح مودال البرج
-// ========================================
-function openSignModal(sign) {
-
-    const modal = document.getElementById('signModal');
-    const modalBody = document.getElementById('modalBody');
-
-    if (!modal || !modalBody) return;
-
-    const info = zodiacData[sign];
-
-    modalBody.innerHTML = `
-        <div class="modal-sign-header" style="--mc:${info.color}">
-            <div class="modal-symbol">${info.symbol}</div>
-
-            <div class="modal-sign-info">
-                <h2>${sign}</h2>
-                <p>${info.dateRange}</p>
-            </div>
-        </div>
-
-        <div class="modal-desc">
-            ${info.description}
-        </div>
-
-        <div class="modal-sections">
-
-            <div class="modal-section">
-                <h3>✨ الصفات</h3>
-                <p>${info.traits}</p>
-            </div>
-
-            <div class="modal-section">
-                <h3>⚡ نقاط الضعف</h3>
-                <p>${info.flaws}</p>
-            </div>
-
-            <div class="modal-section">
-                <h3>🔥 نقاط القوة</h3>
-                <ul>
-                    ${info.strengths.map(s => `<li>${s}</li>`).join('')}
-                </ul>
-            </div>
-
-        </div>
-    `;
-
-    modal.classList.remove('hidden');
-}
-
-// ========================================
-// غلق المودال
-// ========================================
-function closeModal() {
-    document.getElementById('signModal')
-        .classList.add('hidden');
 }
 
 
