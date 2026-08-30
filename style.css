@@ -1,3 +1,4 @@
+
 /* ================================
    style.css — الأبراج الكونية
    إسلام الهاشمي
@@ -1136,8 +1137,551 @@ footer {
 .lilith-btn:hover {
     transform: translateX(-50%) scale(1.1);
 }
+/* ================================================
+   مجتمع ليليث — Lilith Community additions
+   ================================================ */
 
+/* --- منطقة الدخول بجوجل في الهيدر --- */
+.auth-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
+.google-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    font-size: 14px;
+    background: rgba(255,255,255,0.08);
+    box-shadow: none;
+    border: 1px solid var(--border);
+}
 
+.google-btn:hover {
+    background: rgba(255,255,255,0.14);
+    transform: translateY(-1px);
+}
 
+.google-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    color: #4285F4;
+    font-weight: 900;
+    font-size: 13px;
+}
 
+.user-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.messages-btn {
+    position: relative;
+    background: transparent;
+    box-shadow: none;
+    padding: 6px;
+    font-size: 20px;
+    border-radius: 50%;
+}
+
+.messages-btn:hover { background: rgba(255,255,255,0.08); transform: none; }
+
+.badge {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background: #ff4757;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    min-width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 3px;
+}
+
+.user-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent);
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.user-avatar:hover {
+    transform: scale(1.08);
+    border-color: var(--gold);
+}
+
+/* --- قسم مجتمع ليليث --- */
+.community-section {
+    background: linear-gradient(135deg,
+        rgba(192,132,252,0.06),
+        rgba(129,140,248,0.04));
+}
+
+.community-locked {
+    text-align: center;
+    padding: 30px 20px;
+    background: rgba(255,255,255,0.03);
+    border: 1px dashed var(--border);
+    border-radius: 16px;
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+.post-composer {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.post-composer textarea {
+    width: 100%;
+    min-height: 90px;
+    resize: vertical;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 14px;
+    color: var(--text);
+    font-family: 'Cairo', sans-serif;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.post-composer textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(192,132,252,0.2);
+}
+
+.composer-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.composer-footer span {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.composer-footer button {
+    padding: 10px 22px;
+    font-size: 15px;
+}
+
+.community-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.filter-btn {
+    padding: 8px 18px;
+    font-size: 14px;
+    background: rgba(255,255,255,0.05);
+    box-shadow: none;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: white;
+}
+
+.feed-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* --- كارت المنشور --- */
+.post-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 18px 20px;
+    transition: border-color 0.3s;
+}
+
+.post-card:hover { border-color: rgba(192,132,252,0.3); }
+
+.post-card.official {
+    border-color: color-mix(in srgb, var(--gold) 40%, transparent);
+    background: linear-gradient(135deg, rgba(251,191,36,0.06), rgba(255,255,255,0.03));
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.post-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.post-author-info { flex: 1; min-width: 0; }
+
+.post-author-name {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.post-author-name .official-badge {
+    font-size: 11px;
+    background: linear-gradient(135deg, var(--gold), #f59e0b);
+    color: #1a1030;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 900;
+}
+
+.post-meta {
+    font-size: 12px;
+    color: var(--text-muted);
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.post-content {
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--text);
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin-bottom: 14px;
+}
+
+.post-actions {
+    display: flex;
+    gap: 6px;
+    border-top: 1px solid var(--border);
+    padding-top: 10px;
+    flex-wrap: wrap;
+}
+
+.post-action-btn {
+    background: transparent;
+    box-shadow: none;
+    color: var(--text-muted);
+    font-size: 13px;
+    padding: 7px 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.post-action-btn:hover {
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    transform: none;
+}
+
+.post-action-btn.liked { color: #ff4757; }
+
+.post-action-btn.danger:hover { color: #ff4757; }
+
+.post-views {
+    margin-inline-start: auto;
+    font-size: 12px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.load-more-btn {
+    align-self: center;
+    margin: 10px auto 0;
+    background: rgba(255,255,255,0.06);
+    box-shadow: none;
+    border: 1px solid var(--border);
+}
+
+/* --- تعليقات --- */
+.comments-list {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.comment-item {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.comment-item img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.comment-bubble {
+    background: rgba(255,255,255,0.05);
+    border-radius: 14px;
+    padding: 8px 14px;
+    flex: 1;
+}
+
+.comment-author {
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--accent);
+}
+
+.comment-form {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.comment-form input {
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 9px 16px;
+    color: var(--text);
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    outline: none;
+}
+
+.comment-form button {
+    padding: 9px 18px;
+    font-size: 14px;
+}
+
+/* --- البروفايل --- */
+.profile-header {
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.profile-avatar-large {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+}
+
+.profile-name { font-family: 'Amiri', serif; font-size: 24px; color: var(--accent); }
+
+.profile-sub {
+    color: var(--text-muted);
+    font-size: 13px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+
+.profile-stats {
+    display: flex;
+    gap: 22px;
+    padding: 16px 30px;
+    border-bottom: 1px solid var(--border);
+}
+
+.profile-stat { text-align: center; }
+.profile-stat b { display: block; font-size: 18px; color: var(--text); }
+.profile-stat span { font-size: 12px; color: var(--text-muted); }
+
+.profile-actions {
+    display: flex;
+    gap: 10px;
+    padding: 16px 30px;
+    border-bottom: 1px solid var(--border);
+}
+
+.profile-actions button { padding: 9px 20px; font-size: 14px; }
+
+.btn-secondary {
+    background: rgba(255,255,255,0.08) !important;
+    box-shadow: none !important;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #ff4757, #c0392b) !important;
+    box-shadow: 0 8px 25px rgba(255,71,87,0.3) !important;
+}
+
+.profile-posts { padding: 20px 30px; display: flex; flex-direction: column; gap: 14px; }
+
+.compat-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.06);
+    margin-top: 6px;
+}
+
+/* --- الرسائل الخاصة --- */
+.conversations-list { padding: 10px 0; }
+
+.conversation-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.conversation-item:hover { background: rgba(255,255,255,0.05); }
+
+.conversation-item img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.conversation-preview { flex: 1; min-width: 0; }
+.conversation-preview .name { font-weight: 700; font-size: 14px; }
+.conversation-preview .last-msg {
+    font-size: 13px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chat-window { display: flex; flex-direction: column; height: 60vh; }
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chat-bubble {
+    max-width: 75%;
+    padding: 10px 16px;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.chat-bubble.mine {
+    align-self: flex-end;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: white;
+    border-bottom-left-radius: 4px;
+}
+
+.chat-bubble.theirs {
+    align-self: flex-start;
+    background: rgba(255,255,255,0.07);
+    border-bottom-right-radius: 4px;
+}
+
+.chat-input-row {
+    display: flex;
+    gap: 10px;
+    padding: 14px 20px;
+    border-top: 1px solid var(--border);
+}
+
+.chat-input-row input {
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 10px 16px;
+    color: var(--text);
+    font-family: 'Cairo', sans-serif;
+    outline: none;
+}
+
+/* --- شكاوى واقتراحات الموقع --- */
+#siteMessagesModal .modal-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+#siteMessagesModal textarea {
+    width: 100%;
+    min-height: 120px;
+    resize: vertical;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 14px;
+    color: var(--text);
+    font-family: 'Cairo', sans-serif;
+    font-size: 15px;
+    outline: none;
+}
+
+.site-message-btn {
+    display: block;
+    margin: 18px auto 0;
+    background: rgba(255,255,255,0.06);
+    box-shadow: none;
+    border: 1px solid var(--border);
+    font-size: 14px;
+    padding: 10px 22px;
+}
+
+/* --- موبايل --- */
+@media (max-width: 768px) {
+    .auth-area { gap: 6px; }
+    .google-btn span:last-child { display: none; }
+    .google-btn { padding: 9px 11px; }
+
+    .post-actions { justify-content: space-between; }
+    .post-views { margin-inline-start: 0; order: 5; width: 100%; justify-content: flex-end; }
+
+    .profile-header { flex-direction: column; text-align: center; padding: 22px; }
+    .profile-stats, .profile-actions, .profile-posts { padding-left: 20px; padding-right: 20px; }
+    .chat-window { height: 70vh; }
+}
